@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Somar Consulting</title>
+  <meta name="description" content="Somar Consulting – smarter B2B marketing strategy, execution, and AI-driven innovation." />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+  <!-- Optional favicon: replace with your own file path -->
+  <!-- <link rel="icon" href="/favicon.ico"> -->
+  <style>
+    :root{
+      --bg:#ffffff;
+      --fg:#0f172a;          /* slate-900 */
+      --muted:#475569;       /* slate-600 */
+      --accent:#4DC0B5;      /* Somar teal */
+      --card:#f8fafc;        /* slate-50 */
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      color:var(--fg);
+      background:var(--bg);
+      line-height:1.6;
+      -webkit-font-smoothing:antialiased;
+      text-rendering:optimizeLegibility;
+    }
+    .wrap{
+      max-width:880px;
+      margin:0 auto;
+      padding:72px 24px;
+      display:flex;
+      min-height:100vh;
+      align-items:center;
+    }
+    .card{
+      background:var(--card);
+      border:1px solid #e2e8f0;
+      border-radius:20px;
+      padding:40px;
+      box-shadow:0 10px 24px rgba(2, 6, 23, 0.06);
+      width:100%;
+    }
+    .logo{
+      font-family: Montserrat, Inter, sans-serif;
+      font-weight:700;
+      letter-spacing:0.04em;
+      font-size:22px;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      color:var(--fg);
+      margin-bottom:10px;
+    }
+    .logo::before{
+      content:"";
+      width:34px;height:2px;background:var(--accent);
+      display:inline-block;transform:translateY(-1px);
+    }
+    h1{
+      font-family: Montserrat, Inter, sans-serif;
+      font-weight:700;
+      font-size:38px;
+      line-height:1.2;
+      margin:6px 0 20px;
+      letter-spacing:-0.01em;
+    }
+    p{
+      font-size:18px;
+      color:var(--muted);
+      margin:0 0 16px;
+    }
+    .cta{
+      display:inline-block;
+      margin-top:16px;
+      padding:14px 20px;
+      border-radius:14px;
+      font-weight:600;
+      text-decoration:none;
+      background:var(--accent);
+      color:#0b1720;
+      transition:transform .06s ease, box-shadow .2s ease;
+      box-shadow:0 8px 18px rgba(77,192,181,.28);
+    }
+    .cta:focus, .cta:hover{ transform:translateY(-1px) }
+    footer{
+      margin-top:28px;
+      font-size:14px;
+      color:#64748b;
+    }
+    @media (max-width:640px){
+      .card{ padding:28px }
+      h1{ font-size:30px }
+      p{ font-size:17px }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="card" role="region" aria-labelledby="hero-title">
+      <div class="logo">SOMAR</div>
+      <h1 id="hero-title">Looking to connect?</h1>
+      <p>Somar Consulting is a space for smarter B2B marketing strategy, execution, and AI-driven innovation.</p>
+      <p>We’re happy to discuss ideas, share insights, or explore potential collaborations. If you think our expertise in B2B growth marketing, demand generation, and AI-powered solutions could be valuable to you, drop us a message.</p>
+
+      <!-- Update the href to whatever inbox/forwarding you keep.
+           If you don't want a mailto yet, point to LinkedIn or remove the button. -->
+      <a class="cta" href="mailto:hello@somar-consulting.com">email us</a>
+
+      <footer>© <span id="y"></span> Somar Consulting</footer>
+    </section>
+  </main>
+  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+</body>
+</html>
