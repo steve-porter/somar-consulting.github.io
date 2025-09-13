@@ -1,118 +1,161 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Somar Consulting</title>
-  <meta name="description" content="Somar Consulting – smarter B2B marketing strategy, execution, and AI-driven innovation." />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
-  <!-- Optional favicon: replace with your own file path -->
-  <!-- <link rel="icon" href="/favicon.ico"> -->
+
+  <!-- Inter only -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
   <style>
     :root{
-      --bg:#ffffff;
-      --fg:#0f172a;          /* slate-900 */
-      --muted:#475569;       /* slate-600 */
-      --accent:#4DC0B5;      /* Somar teal */
-      --card:#f8fafc;        /* slate-50 */
+      --bg: #1C1C2B;            /* page background */
+      --panel: #232335;         /* card background */
+      --text: #FFFFFF;          /* primary text */
+      --subtle: #C7C9D3;        /* secondary text */
+      --cta: #22D3EE;           /* bright CTA (cyan) */
+      --cta-hover: #06B6D4;
+      --border: #2F3045;        /* card border */
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 18px;
+      --gap: clamp(20px, 4vw, 40px);
+      --maxw: 960px;
     }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
-      color:var(--fg);
-      background:var(--bg);
-      line-height:1.6;
-      -webkit-font-smoothing:antialiased;
-      text-rendering:optimizeLegibility;
+
+    * { box-sizing: border-box; }
+    html, body {
+      height: 100%;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      line-height: 1.6;
+      text-rendering: optimizeLegibility;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
-    .wrap{
-      max-width:880px;
-      margin:0 auto;
-      padding:72px 24px;
-      display:flex;
-      min-height:100vh;
-      align-items:center;
+
+    a { color: var(--cta); text-decoration: none; }
+    a:hover { color: var(--cta-hover); }
+    a:focus-visible, button:focus-visible {
+      outline: 3px solid var(--cta);
+      outline-offset: 2px;
+      border-radius: 10px;
     }
-    .card{
-      background:var(--card);
-      border:1px solid #e2e8f0;
-      border-radius:20px;
-      padding:40px;
-      box-shadow:0 10px 24px rgba(2, 6, 23, 0.06);
-      width:100%;
+
+    .wrap {
+      min-height: 100%;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
     }
-    .logo{
-      font-family: Montserrat, Inter, sans-serif;
-      font-weight:700;
-      letter-spacing:0.04em;
-      font-size:22px;
-      display:inline-flex;
-      align-items:center;
-      gap:10px;
-      color:var(--fg);
-      margin-bottom:10px;
+
+    header, main, footer {
+      width: min(100% - 32px, var(--maxw));
+      margin-inline: auto;
     }
-    .logo::before{
-      content:"";
-      width:34px;height:2px;background:var(--accent);
-      display:inline-block;transform:translateY(-1px);
+
+    header {
+      padding: clamp(20px, 4vw, 36px) 0 0;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    h1{
-      font-family: Montserrat, Inter, sans-serif;
-      font-weight:700;
-      font-size:38px;
-      line-height:1.2;
-      margin:6px 0 20px;
-      letter-spacing:-0.01em;
+
+    .brand {
+      display: inline-flex; align-items: center; gap: 12px;
+      font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+      color: var(--text);
     }
-    p{
-      font-size:18px;
-      color:var(--muted);
-      margin:0 0 16px;
+    .logo {
+      width: 18px; height: 18px; border-radius: 4px;
+      background: linear-gradient(135deg, var(--cta), #7c3aed);
+      display: inline-block;
     }
-    .cta{
-      display:inline-block;
-      margin-top:16px;
-      padding:14px 20px;
-      border-radius:14px;
-      font-weight:600;
-      text-decoration:none;
-      background:var(--accent);
-      color:#0b1720;
-      transition:transform .06s ease, box-shadow .2s ease;
-      box-shadow:0 8px 18px rgba(77,192,181,.28);
+
+    .card {
+      margin: var(--gap) 0;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: clamp(18px, 3.6vw, 36px);
+      box-shadow: var(--shadow);
     }
-    .cta:focus, .cta:hover{ transform:translateY(-1px) }
-    footer{
-      margin-top:28px;
-      font-size:14px;
-      color:#64748b;
+
+    h1 {
+      font-size: clamp(28px, 4.6vw, 44px);
+      line-height: 1.15;
+      margin: 8px 0 12px;
+      letter-spacing: -0.01em;
     }
-    @media (max-width:640px){
-      .card{ padding:28px }
-      h1{ font-size:30px }
-      p{ font-size:17px }
+
+    p.lead {
+      color: var(--subtle);
+      font-size: clamp(16px, 2.2vw, 18px);
+      margin: 10px 0 22px;
+    }
+
+    .cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: var(--cta);
+      color: #05232A;                 /* dark text on bright button for contrast */
+      font-weight: 700;
+      padding: 12px 18px;
+      border-radius: 12px;
+      border: 0;
+      cursor: pointer;
+      transition: transform .06s ease, background .12s ease;
+      box-shadow: 0 6px 16px rgba(34, 211, 238, .35);
+    }
+    .cta:hover { background: var(--cta-hover); transform: translateY(-1px); }
+    .cta:active { transform: translateY(0); }
+
+    footer {
+      color: var(--subtle);
+      padding: 20px 0 36px;
+      font-size: 14px;
     }
   </style>
 </head>
 <body>
-  <main class="wrap">
-    <section class="card" role="region" aria-labelledby="hero-title">
-      <div class="logo">SOMAR</div>
-      <h1 id="hero-title">Looking to connect?</h1>
-      <p>Somar Consulting is a space for smarter B2B marketing strategy, execution, and AI-driven innovation.</p>
-      <p>We’re happy to discuss ideas, share insights, or explore potential collaborations. If you think our expertise in B2B growth marketing, demand generation, and AI-powered solutions could be valuable to you, drop us a message.</p>
+  <div class="wrap">
+    <header aria-label="Top bar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true"></span>
+        SOMAR
+      </div>
+    </header>
 
-      <!-- Update the href to whatever inbox/forwarding you keep.
-           If you don't want a mailto yet, point to LinkedIn or remove the button. -->
-      <a class="cta" href="mailto:hello@somar-consulting.com">email us</a>
+    <main>
+      <section class="card" aria-labelledby="intro">
+        <p class="brand" style="gap:8px; font-size:14px; color:var(--subtle);">
+          <span class="logo" style="width:10px;height:10px"></span> SOMAR
+        </p>
+        <h1 id="intro">Looking to connect?</h1>
+        <p class="lead">
+          Somar Consulting is a space for smarter B2B marketing strategy, execution, and AI-driven innovation.
+        </p>
+        <p class="lead" style="margin-top:-4px">
+          We’re happy to discuss ideas, share insights, or explore potential collaborations. If you think our expertise in B2B growth marketing, demand generation, and AI-powered solutions could be valuable to you, drop us a message.
+        </p>
 
-      <footer>© <span id="y"></span> Somar Consulting</footer>
-    </section>
-  </main>
-  <script>document.getElementById('y').textContent = new Date().getFullYear()</script>
+        <p>
+          <a class="cta" href="mailto:steve@somar-consulting.com?subject=Hello%20Somar">
+            <span>email us</span>
+            <!-- simple arrow -->
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M13 5l7 7-7 7v-4H4v-6h9V5z"></path>
+            </svg>
+          </a>
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      © <span id="y"></span> Somar Consulting
+    </footer>
+  </div>
+
+  <script>
+    // keep the footer year current
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
