@@ -8,126 +8,54 @@
   <!-- Inter only -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
+  <!-- Your favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="alternate icon" href="/favicon.svg">
+
   <style>
     :root{
-      --bg: #1C1C2B;            /* page background */
-      --panel: #232335;         /* card background */
-      --text: #FFFFFF;          /* primary text */
-      --subtle: #C7C9D3;        /* secondary text */
-      --cta: #22D3EE;           /* bright CTA (cyan) */
-      --cta-hover: #06B6D4;
-      --border: #2F3045;        /* card border */
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius: 18px;
-      --gap: clamp(20px, 4vw, 40px);
-      --maxw: 960px;
+      --bg:#1C1C2B; --panel:#232335; --text:#FFF; --subtle:#C7C9D3;
+      --cta:#22D3EE; --cta-hover:#06B6D4; --border:#2F3045;
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px; --gap:clamp(20px,4vw,40px); --maxw:960px;
     }
+    *{box-sizing:border-box}
+    html,body{height:100%;background:var(--bg);color:var(--text);
+      font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"Apple Color Emoji","Segoe UI Emoji";
+      line-height:1.6;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+    a{color:var(--cta);text-decoration:none}
+    a:hover{color:var(--cta-hover)}
+    a:focus-visible,button:focus-visible{outline:3px solid var(--cta);outline-offset:2px;border-radius:10px}
 
-    * { box-sizing: border-box; }
-    html, body {
-      height: 100%;
-      background: var(--bg);
-      color: var(--text);
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      line-height: 1.6;
-      text-rendering: optimizeLegibility;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
+    .wrap{min-height:100%;display:grid;grid-template-rows:auto 1fr auto}
+    header,main,footer{width:min(100% - 32px,var(--maxw));margin-inline:auto}
 
-    a { color: var(--cta); text-decoration: none; }
-    a:hover { color: var(--cta-hover); }
-    a:focus-visible, button:focus-visible {
-      outline: 3px solid var(--cta);
-      outline-offset: 2px;
-      border-radius: 10px;
-    }
+    header{padding:clamp(20px,4vw,36px) 0 0;display:flex;align-items:center}
+    .brand{font-weight:800;letter-spacing:.06em;text-transform:uppercase;font-size:14px;color:var(--text);opacity:.9}
 
-    .wrap {
-      min-height: 100%;
-      display: grid;
-      grid-template-rows: auto 1fr auto;
-    }
+    .card{margin:var(--gap) 0;background:var(--panel);border:1px solid var(--border);
+      border-radius:var(--radius);padding:clamp(18px,3.6vw,36px);box-shadow:var(--shadow)}
+    h1{font-size:clamp(28px,4.6vw,44px);line-height:1.15;margin:8px 0 12px;letter-spacing:-.01em}
+    p.lead{color:var(--subtle);font-size:clamp(16px,2.2vw,18px);margin:10px 0 22px}
 
-    header, main, footer {
-      width: min(100% - 32px, var(--maxw));
-      margin-inline: auto;
-    }
+    .cta{display:inline-flex;align-items:center;gap:10px;background:var(--cta);color:#05232A;
+      font-weight:700;padding:12px 18px;border-radius:12px;border:0;cursor:pointer;
+      transition:transform .06s ease,background .12s ease;box-shadow:0 6px 16px rgba(34,211,238,.35)}
+    .cta:hover{background:var(--cta-hover);transform:translateY(-1px)}
+    .cta:active{transform:translateY(0)}
 
-    header {
-      padding: clamp(20px, 4vw, 36px) 0 0;
-      display: flex; align-items: center; justify-content: space-between;
-    }
-
-    .brand {
-      display: inline-flex; align-items: center; gap: 12px;
-      font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
-      color: var(--text);
-    }
-    .logo {
-      width: 18px; height: 18px; border-radius: 4px;
-      background: linear-gradient(135deg, var(--cta), #7c3aed);
-      display: inline-block;
-    }
-
-    .card {
-      margin: var(--gap) 0;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: clamp(18px, 3.6vw, 36px);
-      box-shadow: var(--shadow);
-    }
-
-    h1 {
-      font-size: clamp(28px, 4.6vw, 44px);
-      line-height: 1.15;
-      margin: 8px 0 12px;
-      letter-spacing: -0.01em;
-    }
-
-    p.lead {
-      color: var(--subtle);
-      font-size: clamp(16px, 2.2vw, 18px);
-      margin: 10px 0 22px;
-    }
-
-    .cta {
-      display: inline-flex; align-items: center; gap: 10px;
-      background: var(--cta);
-      color: #05232A;                 /* dark text on bright button for contrast */
-      font-weight: 700;
-      padding: 12px 18px;
-      border-radius: 12px;
-      border: 0;
-      cursor: pointer;
-      transition: transform .06s ease, background .12s ease;
-      box-shadow: 0 6px 16px rgba(34, 211, 238, .35);
-    }
-    .cta:hover { background: var(--cta-hover); transform: translateY(-1px); }
-    .cta:active { transform: translateY(0); }
-
-    footer {
-      color: var(--subtle);
-      padding: 20px 0 36px;
-      font-size: 14px;
-    }
+    footer{color:var(--subtle);padding:20px 0 36px;font-size:14px}
   </style>
 </head>
 <body>
   <div class="wrap">
     <header aria-label="Top bar">
-      <div class="brand">
-        <span class="logo" aria-hidden="true"></span>
-        SOMAR
-      </div>
+      <div class="brand">SOMAR</div>
     </header>
 
     <main>
       <section class="card" aria-labelledby="intro">
-        <p class="brand" style="gap:8px; font-size:14px; color:var(--subtle);">
-          <span class="logo" style="width:10px;height:10px"></span> SOMAR
-        </p>
+        <!-- removed the extra SOMAR row / blue icon -->
         <h1 id="intro">Looking to connect?</h1>
         <p class="lead">
           Somar Consulting is a space for smarter B2B marketing strategy, execution, and AI-driven innovation.
@@ -139,7 +67,6 @@
         <p>
           <a class="cta" href="mailto:steve@somar-consulting.com?subject=Hello%20Somar">
             <span>email us</span>
-            <!-- simple arrow -->
             <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
               <path d="M13 5l7 7-7 7v-4H4v-6h9V5z"></path>
             </svg>
@@ -148,14 +75,9 @@
       </section>
     </main>
 
-    <footer>
-      © <span id="y"></span> Somar Consulting
-    </footer>
+    <footer>© <span id="y"></span> Somar Consulting</footer>
   </div>
 
-  <script>
-    // keep the footer year current
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear();</script>
 </body>
 </html>
